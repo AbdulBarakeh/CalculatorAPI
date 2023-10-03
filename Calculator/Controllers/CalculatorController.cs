@@ -21,5 +21,18 @@ namespace Calculator.Controllers
                 Result = request.Number1 + request.Number2,
             };
         }
+        [Route("Division")]
+        [HttpPost()]
+        public CalculationReult Division([FromBody] CalculationRequest request)
+        {
+            var logger = new SqlLogger();
+
+            logger.LogToSql($"Dividing {request.Number1} with {request.Number2}");
+
+            return new CalculationReult
+            {
+                Result = request.Number1 / request.Number2,
+            };
+        }
     }
 }
