@@ -1,14 +1,18 @@
 using Calculator.Controllers;
 using Calculator.Models;
+using Calculator.Services;
+using Moq;
 
 namespace CalculatorTests
 {
     public class AdditionTest
     {
+
         [Fact]
         public void AddingNumbersGivesCorrectResult()
         {
-            var calculator = new CalculatorController();
+            var logger = Mock.Of<ILogger>();
+            var calculator = new CalculatorController(logger);
 
             var result = calculator.Addition(new CalculationRequest { Number1 = 1, Number2 = 2 });
 
