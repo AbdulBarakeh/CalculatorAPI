@@ -11,7 +11,8 @@ namespace Calculator.Services
 
         public void LogToFile(string message, string filepath)
         {
-            throw new NotImplementedException();
+            //No need to make the file logging async, due to being a singleton
+            File.AppendAllText(filepath, $"\n{message}");
         }
 
         public void LogToSql(string message)
