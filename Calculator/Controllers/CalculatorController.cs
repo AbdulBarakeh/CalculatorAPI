@@ -21,5 +21,18 @@ namespace Calculator.Controllers
                 Result = request.Number1 + request.Number2,
             };
         }
+
+        [Route("AdditionMultiple")]
+        [HttpPost()]
+        public CalculationReult Addition([FromBody] CalculationRequestMultiple request)
+        {
+            var logger = new SqlLogger();
+            logger.LogToSql($"Adding following numbers together: {String.Join(",", request.Numbers)}");
+
+            return new CalculationReult
+            {
+                Result = request.Numbers.Sum()
+            };
+        }
     }
 }

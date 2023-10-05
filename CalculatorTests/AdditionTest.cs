@@ -14,5 +14,15 @@ namespace CalculatorTests
 
             Assert.Equal(3, result.Result);
         }
+
+        [Fact]
+        public void AddingNumbersInListGivesCorrectResult()
+        {
+            var calculator = new CalculatorController();
+
+            var result = calculator.Addition(new CalculationRequestMultiple { Numbers = new List<decimal>() { 1, 2 } });
+
+            Assert.Equal(3, result.Result);
+        }
     }
 }
