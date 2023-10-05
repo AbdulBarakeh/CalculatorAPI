@@ -22,7 +22,7 @@ namespace Calculator.Controllers
             };
         }
 
-        [Route("Addition")]
+        [Route("AdditionMultiple")]
         [HttpPost()]
         public CalculationReult Addition([FromBody] CalculationRequestMultiple request)
         {
