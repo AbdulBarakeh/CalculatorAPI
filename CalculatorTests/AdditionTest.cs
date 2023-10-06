@@ -11,6 +11,7 @@ namespace CalculatorTests
         [Fact]
         public void AddingNumbersGivesCorrectResult()
         {
+            //mocking logger due to not being unit under test
             var logger = Mock.Of<ILogger>();
             var calculator = new CalculatorController(logger);
 

@@ -10,7 +10,7 @@ namespace CalculatorTests
         [Fact]
         public void MessageIsWrittenInFile()
         {
-            //logger is unit under test and should not be mocked
+            //logger is unit under test and should be called explicitly
             var logger = new Logger();
             logger.LogToFile("Test", "./Logfile.txt");
 
