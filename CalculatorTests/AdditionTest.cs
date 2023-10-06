@@ -16,11 +16,11 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void AddingNumbersInListGivesCorrectResult()
+        public void AddingNumbersFromListGivesCorrectResult()
         {
             var calculator = new CalculatorController();
 
-            var result = calculator.Addition(new CalculationRequestMultiple { Numbers = new List<decimal>() { 1, 2 } });
+            var result = calculator.Addition(new CalculationRequestMultiNum { Numbers = new List<decimal>() { 1, 2 } });
 
             Assert.Equal(3, result.Result);
         }

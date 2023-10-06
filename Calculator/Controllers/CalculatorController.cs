@@ -10,26 +10,26 @@ namespace Calculator.Controllers
     {
         [Route("Addition")]
         [HttpPost()]
-        public CalculationReult Addition([FromBody] CalculationRequest request)
+        public CalculationResult Addition([FromBody] CalculationRequest request)
         {
             var logger = new SqlLogger();
 
             logger.LogToSql($"Adding {request.Number1} to {request.Number2}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Number1 + request.Number2,
             };
         }
 
-        [Route("AdditionMultiple")]
+        [Route("AdditionMultipleNumbers")]
         [HttpPost()]
-        public CalculationReult Addition([FromBody] CalculationRequestMultiple request)
+        public CalculationResult Addition([FromBody] CalculationRequestMultiNum request)
         {
             var logger = new SqlLogger();
             logger.LogToSql($"Adding following numbers together: {String.Join(",", request.Numbers)}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Numbers.Sum()
             };
