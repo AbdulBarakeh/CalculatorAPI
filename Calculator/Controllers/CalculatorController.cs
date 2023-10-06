@@ -8,15 +8,19 @@ namespace Calculator.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
+        public Calculator.Services.ILogger Logger { get; set; }
+        public CalculatorController(Calculator.Services.ILogger logger)
+        {
+            Logger = logger;
+        }
         [Route("Addition")]
         [HttpPost()]
-        public CalculationReult Addition([FromBody] CalculationRequest request)
+        public CalculationResult Addition([FromBody] CalculationRequest request)
         {
-            var logger = new SqlLogger();
 
-            logger.LogToSql($"Adding {request.Number1} to {request.Number2}");
+            Logger.LogToSql($"Adding {request.Number1} to {request.Number2}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Number1 + request.Number2,
             };

@@ -9,6 +9,7 @@ namespace Calculator
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<Calculator.Services.ILogger,Calculator.Services.Logger>();
 
             var app = builder.Build();
 
