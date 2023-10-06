@@ -10,26 +10,26 @@ namespace Calculator.Controllers
     {
         [Route("Addition")]
         [HttpPost()]
-        public CalculationReult Addition([FromBody] CalculationRequest request)
+        public CalculationResult Addition([FromBody] CalculationRequest request)
         {
             var logger = new SqlLogger();
 
             logger.LogToSql($"Adding {request.Number1} to {request.Number2}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Number1 + request.Number2,
             };
         }
         [Route("Division")]
         [HttpPost()]
-        public CalculationReult Division([FromBody] CalculationRequest request)
+        public CalculationResult Division([FromBody] CalculationRequest request)
         {
             var logger = new SqlLogger();
 
             logger.LogToSql($"Dividing {request.Number1} with {request.Number2}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Number1 / request.Number2,
             };
