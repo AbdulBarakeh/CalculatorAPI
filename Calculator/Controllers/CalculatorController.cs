@@ -15,12 +15,12 @@ namespace Calculator.Controllers
         }
         [Route("Addition")]
         [HttpPost()]
-        public CalculationReult Addition([FromBody] CalculationRequest request)
+        public CalculationResult Addition([FromBody] CalculationRequest request)
         {
 
             Logger.LogToSql($"Adding {request.Number1} to {request.Number2}");
 
-            return new CalculationReult
+            return new CalculationResult
             {
                 Result = request.Number1 + request.Number2,
             };
